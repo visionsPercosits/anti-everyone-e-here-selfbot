@@ -1,9 +1,13 @@
 // https://discordjs-self-v13.netlify.app/#/docs/docs/main/general/welcome
 
+const dotenv = require('dotenv');
 const { Client } = require('discord.js-selfbot-v13');
 const client = new Client({
     checkUpdate: false,
 });
+
+dotenv.config();
+const discordToken = process.env.DISCORD_TOKEN;
 
 client.on('ready', async () => {
   console.log(`${client.user.username} is ready!`);
@@ -26,8 +30,6 @@ client.on('messageCreate', async (message) => {
 
 */
 
-
-
 client.on('messageCreate', (message) => {
     if (message.content === '@everyone' || message.content === '@here') {
         const BannablePerson = message.member;
@@ -41,5 +43,5 @@ client.on('messageCreate', (message) => {
 Basicamente no bloco a cima, ele irá ser executado caso a pessoa seja banível,
 É possível modificar e deixar melhor, use o script da forma que se sentir melhor.
 */
-
-client.login('sua-token');
+if (!discordToken) return console.log("Informe um token no .env!");
+client.login(discordToken);
