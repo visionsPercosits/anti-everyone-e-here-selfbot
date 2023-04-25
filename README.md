@@ -13,3 +13,17 @@
     <p>Todas as instruções estão localizadas dentro dos comentários do script.</p>
     <a href="https://discord.gg/mithamkers" target="_blank">🤖 Discord</a>
 </body>
+
+# Como usar meu Token do discord?
+Primeiro, basta criar uma cópia de `.env_copy` e nomar de `.env`:
+```sh
+$ cp .env_copy .env
+```
+Após isso, insera seu token tentro da variável de abiente, no arquivo `.env` que acabou de criar:
+```.env
+DISCORD_TOKEN={seu-token}
+```
+Uma vez feito isso, basta rodar o código :)
+```sh
+$ node app.js
+```
